@@ -10,7 +10,7 @@ export default function (props) {
     console.log("On Change");
     setText(event.target.value);
   };
-  const [text, setText] = useState("Enter Text Here");
+  const [text, setText] = useState();
 
   return (
     <>
@@ -19,6 +19,7 @@ export default function (props) {
         <textarea
           className="form-control"
           value={text}
+          placeholder="Enter Text Here"
           onChange={handleOnChange}
           id="myBox"
           rows="5"
