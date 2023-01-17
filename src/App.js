@@ -41,7 +41,7 @@ function App() {
       <div className="container my-3">
         <Routes>    
           <Route exact path='/about' element={<About mode={mode} />} />
-          <Route excat path='/' element={<TextForm showAlert = {showAlert} heading = "Enter the text to analyze" mode = {mode}/>} /> 
+          <Route excat path='/' element={<TextForm showAlert = {showAlert} heading = "Try TextUtils - Word & Character Counter, Remove Extra Spaces" mode = {mode}/>} /> 
         </Routes>
       </div>
       </BrowserRouter>

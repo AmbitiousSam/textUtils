@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
@@ -8,12 +8,20 @@ export default function Navbar(props) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+  const [active, setActive] = useState("");
+
+  const handleOnClick = (link) => {
+    setActive(link);
+  };
+
+
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand nav-link" to="/" >
+          {/* <h4 className="mx-2">{props.title}</h4> */}
           {props.title}
         </Link>
         <button
@@ -24,18 +32,19 @@ export default function Navbar(props) {
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        >
+          >
           <span className="navbar-toggler-icon"></span>
         </button>
+        
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className={`nav-link ${active === 'home' ? 'active': ''}`} aria-current="page" to="/" onClick={()=>handleOnClick('home')}>
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link className={`nav-link ${active === 'about' ? 'active': ''}`} to="/about" onClick={()=>handleOnClick('about')}>
                 {props.aboutText}
               </Link>
             </li>
