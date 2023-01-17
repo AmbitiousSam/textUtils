@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+// eslint-disable-next-line
 export default function (props) {
   const [text, setText] = useState("");
 
@@ -7,13 +8,13 @@ export default function (props) {
     // console.log("Uppercase");
     let newText = text.toUpperCase();
     setText(newText);
-    props.showAlert("Converted to UpperCase","success")
+    props.showAlert("Converted to UpperCase", "success");
   };
   const handleLoClick = () => {
     // console.log("LowerCase");
     let newText = text.toLowerCase();
     setText(newText);
-    props.showAlert("Converted to LowerCase","success")
+    props.showAlert("Converted to LowerCase", "success");
   };
   const handleOnChange = (event) => {
     // console.log("On Change");
@@ -21,18 +22,18 @@ export default function (props) {
   };
   const handleClearClick = () => {
     setText("");
-    props.showAlert("Cleared Text","success")
+    props.showAlert("Cleared Text", "success");
   };
   const handleCopyClick = () => {
     var copiedText = document.getElementById("myBox");
     copiedText.select();
     navigator.clipboard.writeText(copiedText.value);
-    props.showAlert("Text Copied","success")
+    props.showAlert("Text Copied", "success");
   };
   const handleExtraSpaces = () => {
     let removeSpace = text.split(/[ ]+/);
     setText(removeSpace.join(" "));
-    props.showAlert("Removed Extra Spaces","success")
+    props.showAlert("Removed Extra Spaces", "success");
   };
 
   return (
@@ -87,7 +88,10 @@ export default function (props) {
         >
           <h2>Your text summary</h2>
           <p>
-            {text.split(" ").length} words and {text.length} characters
+            {text.trim() === ""
+              ? "0"
+              : `${text.trim().split(/\s+/).length} words`}{" "}
+            and {text.length} characters
           </p>
           <p>{0.008 * text.split(" ").length} Minutes read</p>
           <h2>Preview</h2>

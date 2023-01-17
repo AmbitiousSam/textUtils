@@ -1,16 +1,14 @@
-import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 import React, { useState } from "react";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./components/About";
 
 function App() {
-  const [ mode, setMode ] = useState("light"); // Whether dark mode is enabled or not
+  const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
 
-  const [ alert, setAlert ] = useState(null);
+  const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
     setAlert({
@@ -34,16 +32,36 @@ function App() {
     }
   };
   return (
-    <>      
+    <>
+      {/* <Navbar/> */}
       <BrowserRouter>
-      <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <Routes>    
-          <Route exact path='/about' element={<About mode={mode} />} />
-          <Route excat path='/' element={<TextForm showAlert = {showAlert} heading = "Enter the text to analyze" mode = {mode}/>} /> 
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Navbar
+                title="TextUtils"
+                aboutText="About"
+                mode={mode}
+                toggleMode={toggleMode}
+              />
+            }
+          />
+          <Alert alert={alert} />
+          <div className="container my-3">
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/"
+              element={
+                <TextForm
+                  showAlert={showAlert}
+                  heading="Enter the text to analyze below"
+                  mode={mode}
+                />
+              }
+            />
+          </div>
         </Routes>
-      </div>
       </BrowserRouter>
     </>
   );
