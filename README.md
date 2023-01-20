@@ -11,18 +11,19 @@ npm install
 ```
 
 ## Usage
-To use TextUtils, start the development server using npm:
-
 > Note: Make sure to change the following line in the package.json file
 ```
-    "start": "BROWSER=none react-scripts start" # This line will not open the browser when you run the application
-    # If you do want to open browser when you run the application change this line to -
-    "start": "react-scripts start", 
+# This line will not open the browser when you run the application
+"start": "BROWSER=none react-scripts start"
+# If you do want to open browser when you run the application change this line to -
+"start": "react-scripts start", 
 ```
+To use TextUtils, start the development server using npm:
+
 ```
 npm start
 ```
-or
+> or
 ```
 npm run start
 ```
@@ -47,4 +48,4 @@ This will start the development server and open the application in your web brow
 You are welcome to contribute to TextUtils by submitting pull requests or by reporting bugs and issues.
 
 ## Contact
-If you have any questions or feedback, please contact me through email[sk800489@gmail.com](mailto:sk800489@gmail.com).
+If you have any questions or feedback, please contact me at [sk800489@gmail.com](mailto:sk800489@gmail.com).
